@@ -1,1 +1,7 @@
-# nodejs-developer
+# nodejs-develope
+
+### Install
+
+```
+    npm install
+```
