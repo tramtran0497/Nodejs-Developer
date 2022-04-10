@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tramtran0497/nodejs-developer/issues"
   },
-  "homepage": "https://github.com/tramtran0497/nodejs-developer#readme"
+  "homepage": "https://github.com/tramtran0497/nodejs-developer#readme",
+  "dependencies": {
+    "chalk": "^2.4.1"
+  }
 }
