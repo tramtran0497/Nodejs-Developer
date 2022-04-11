@@ -22,3 +22,6 @@ Terminal
 ```
 Notes: it can not take your words as you want, so we use "Yargs" npm.
 - Install "Yargs" npm ``` npm install yargs ```
+
+#### Store DATA with JSON
+
