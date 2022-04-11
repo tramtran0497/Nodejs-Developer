@@ -2,13 +2,22 @@ const fs = require("fs");
 
 const addNote = (title, author) => {
     const notes = loadNotes()
-    // adding obj in an empty array
-    notes.push({
-        title: title,
-        author: author,
-    })
-    // save note!
-    saveNotes(notes)
+    // checking title
+    const duplicatedNote = notes.filter(note => note.title === title)
+    // it returns an array with duplicated note
+    if(duplicatedNote.length === 0){
+        // Have no duplicated
+        // adding obj in an empty array
+        notes.push({
+            title: title,
+            author: author,
+        })
+        // save note!
+        saveNotes(notes)
+        console.log("Adding New Notes")
+    } else{
+        console.log("Note is already added")
+    }
 }
 
 const loadNotes = () => {
