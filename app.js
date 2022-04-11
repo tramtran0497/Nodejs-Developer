@@ -1,5 +1,6 @@
 const { default: chalk } = require("chalk");
+const yargs = require("yargs")
 
-const msg = chalk.red.bold("Tram")
+// const msg = chalk.red.bold("Tram")
 
-console.log(process.argv)
+console.log(yargs.argv)
