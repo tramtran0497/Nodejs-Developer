@@ -1,6 +1,7 @@
 // const { default: chalk } = require("chalk");
 // const msg = chalk.red.bold("Tram")
 
+const addNote = require("./functions")
 const yargs = require("yargs")
 
 yargs.command({
@@ -20,8 +21,7 @@ yargs.command({
     },
     // Function for your command
     handler: function(argv) {
-        console.log("Title " + argv.title)
-        console.log("Author " + argv.author)
+        addNote(argv.title, argv.author)
     }
 })
 
