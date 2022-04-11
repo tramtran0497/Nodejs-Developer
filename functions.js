@@ -38,4 +38,22 @@ const saveNotes = (newNotes) => {
     fs.writeFileSync("notes.json", notesJSON)
 }
 
-module.exports = addNote;
+const removeNote = (title) => {
+    const notes = loadNotes()
+    // checking book exists in an array or not
+    const existBook = notes.find(note => note.title === title)
+    // if existing, remove
+    if(existBook){
+        const index = notes.indexOf(existBook)
+        notes.splice(index, 1)
+        saveNotes(notes)
+    } else{
+        console.log("You should add before removing this book!")
+    }
+    console.log("Notes", notes)
+}
+
+module.exports = {
+    addNote,
+    removeNote
+};

@@ -1,7 +1,7 @@
 // const { default: chalk } = require("chalk");
 // const msg = chalk.red.bold("Tram")
 
-const addNote = require("./functions")
+const noteFuncs = require("./functions")
 const yargs = require("yargs")
 
 yargs.command({
@@ -21,7 +21,28 @@ yargs.command({
     },
     // Function for your command
     handler: function(argv) {
-        addNote(argv.title, argv.author)
+        noteFuncs.addNote(argv.title, argv.author)
+    }
+})
+
+yargs.command({
+    command: 'remove',
+    describe: 'Removing Book',
+    builder: {
+        title: {
+            describe: 'Typing Title',
+            demandOption: true,  // Required
+            type: 'string'     
+        },
+        author: {  
+            describe: 'Typing Author',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    // Function for your command
+    handler: function(argv) {
+        noteFuncs.removeNote(argv.title)
     }
 })
 
