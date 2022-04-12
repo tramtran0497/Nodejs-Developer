@@ -48,4 +48,8 @@ Convert JSON files to JS Object
 ```
 
 #### Debugging Nodejs
-
+```
+    console.log()
+    //or
+    debugger
+```
