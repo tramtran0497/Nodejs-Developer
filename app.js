@@ -1,9 +1,8 @@
-// const { default: chalk } = require("chalk");
-// const msg = chalk.red.bold("Tram")
 
 require('dotenv').config()
 const { default: chalk } = require('chalk');
 const request = require('postman-request');
+const geocode = require("./utils/geocode");
 
 const access_key = process.env.ACCESS_KEY
 // city Helsinki and units: Fahrenheit
@@ -21,14 +20,7 @@ request({url: url, json: true }, (error, response, body) => {
     }
 });
 
-const mapBox_token = process.env.MAPBOX_TOKEN
-const limitNum = 1
-const city = "Ho Chi Minh"
-const geocodeUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${mapBox_token}&limit=${limitNum}`
-
-request({url: geocodeUrl, json: true }, (error, response, body) => {
-    const {center} = response.body.features[0]
-    const latitude = center[1]
-    const longtitude = center[0]
-    console.log(latitude, longtitude)
+geocode("Ho Chi Minh", (error, data) => {
+    console.log("Error", error)
+    console.log("Data", data)
 });
