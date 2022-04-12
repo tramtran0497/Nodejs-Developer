@@ -8,8 +8,9 @@ const access_key = process.env.ACCESS_KEY
 
 const url = `http://api.weatherstack.com/current?access_key=${access_key}&query=Helsinki`
 
-request(url, (error, response, body) => {
+request({url, json: true }, (error, response, body) => {
     // parse data JSON string to JS Obj
-    const data = JSON.parse(response.body)
-    console.log(data.current)
+    //const data = JSON.parse(response.body)
+    // However, json:true is replaced for the above line
+    console.log(response.body.current)
 });

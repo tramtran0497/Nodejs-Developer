@@ -60,3 +60,20 @@ Convert JSON files to JS Object
 ```
     npm install postman-request
 ```
+In Weather App
+```
+    request(url, (error, response, body) => {
+        // parse data JSON string to JS Obj
+        const data = JSON.parse(response.body)
+        console.log(data.current)
+    });
+// OR
+    request({url, json: true }, (error, response, body) => {
+        console.log(response.body.current)
+    });
+```
+
+- Install `dotenv` npm
+```
+    npm install dotenv
+```
