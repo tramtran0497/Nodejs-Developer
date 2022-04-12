@@ -53,3 +53,10 @@ Convert JSON files to JS Object
     //or
     debugger
 ```
+#### Weather App
+- Dark Sky API or WeatherStack, sign up an account.
+
+- Install `postman-request` npm
+```
+    npm install postman-request
+```
