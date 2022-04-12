@@ -20,7 +20,7 @@ yargs.command({
         }
     },
     // Function for your command
-    handler: function(argv) {
+    handler: (argv) => {
         noteFuncs.addNote(argv.title, argv.author)
     }
 })
@@ -41,7 +41,7 @@ yargs.command({
         }
     },
     // Function for your command
-    handler: function(argv) {
+    handler: (argv) => {
         noteFuncs.removeNote(argv.title)
     }
 })
