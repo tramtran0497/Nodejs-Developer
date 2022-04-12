@@ -77,3 +77,5 @@ In Weather App
 ```
     npm install dotenv
 ```
+
+- Using `MapBox` to search geocoding details latitude and longtitude at a certain place 
