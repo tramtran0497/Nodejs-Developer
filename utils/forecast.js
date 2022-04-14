@@ -19,7 +19,4 @@ const forecast = (place, callback) => {
     });
 };
 
-forecast("Ho Chi Minh", (error, data) => {
-    console.log("Error", error);
-    console.log("Data", data);
-});
+module.exports = forecast;
