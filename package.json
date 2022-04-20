@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/tramtran0497/nodejs-developer#readme",
   "dependencies": {
     "chalk": "^2.4.1",
+    "demon": "^1.4.4",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
