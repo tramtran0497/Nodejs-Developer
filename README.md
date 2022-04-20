@@ -79,3 +79,27 @@ In Weather App
 ```
 
 - Using `MapBox` to search geocoding details latitude and longtitude at a certain place 
+
+#### Server
+- Customizing Views Directory
+Before
+```
+    const express = require("express");
+    const app = express();
+
+    // set up, pointing to file with extension "hbs"
+    app.set("view engine", "hbs");
+```
+Then
+```
+    const express = require("express");
+    const path = require("path");
+
+    const app = express();
+    const viewPath = path.join(__dirname, "../templates/views");
+
+    // set up, pointing to file with extension "hbs"
+    app.set("view engine", "hbs");
+    // customizing views directory
+    app.set("views", viewPath);
+```
