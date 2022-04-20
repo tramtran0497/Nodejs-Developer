@@ -14,9 +14,17 @@ hbs.registerPartials(partialsPath);
 
 app.get("/", (req, res) => {
     res.render("index", {
-        title: "Home Page"
+        title: "Home Page",
+        author: "Tram"
     });
+});
+
+app.get("*", (req,res) => {
+    res.render("404", {
+        errorMessage: "Page Not Found"
+    })
 })
+
 
 app.listen('5000', () => {
     console.log("Server runs on port 5000");
