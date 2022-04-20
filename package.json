@@ -22,6 +22,7 @@
     "demon": "^1.4.4",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "hbs": "^4.2.0",
     "nodemon": "^2.0.15",
     "postman-request": "^2.88.1-postman.31",
     "yargs": "^17.4.1"
