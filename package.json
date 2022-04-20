@@ -20,6 +20,7 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "postman-request": "^2.88.1-postman.31",
     "yargs": "^17.4.1"
