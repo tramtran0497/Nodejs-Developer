@@ -20,9 +20,18 @@ app.get("/", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
+    const {place} = req.query;
+    if(!place){
+        return res.render("weather", {
+            title: "Weather Page",
+            author: "Tram",
+            error: "Please fill your place!",
+        });
+    };
     res.render("weather", {
         title: "Weather Page",
-        author: "Tram"
+        author: "Tram",
+        place: place,
     });
 });
 
