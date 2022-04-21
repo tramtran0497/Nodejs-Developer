@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
+const forecast = require("../utils/forecast");
+const geocode = require("../utils/geocode");
 
 const app = express();
 const viewPath = path.join(__dirname, "../templates/views");
@@ -28,18 +30,39 @@ app.get("/weather", (req, res) => {
             error: "Please fill your place!",
         });
     };
-    res.render("weather", {
-        title: "Weather Page",
-        author: "Tram",
-        place: place,
+    
+    geocode(place, (error, {placeName}) => {
+        if(error){
+            return res.render("weather", {
+                title: "Weather Page",
+                author: "Tram",
+                error: error,
+            });
+        }
+        forecast(placeName, (error, forecastData) => {
+            if(error){
+                return res.render("weather", {
+                    title: "Weather Page",
+                    author: "Tram",
+                    error: error,
+                });
+            }
+            res.render("weather", {
+                title: "Weather Page",
+                author: "Tram",
+                place: placeName,
+                weather: forecastData
+            })
+            
+        });
     });
 });
 
 app.get("*", (req,res) => {
     res.render("404", {
         errorMessage: "Page Not Found"
-    })
-})
+    });
+});
 
 
 app.listen('5000', () => {

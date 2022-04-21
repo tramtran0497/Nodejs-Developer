@@ -14,7 +14,7 @@ const forecast = (place, callback) => {
             callback(chalk.red.bold("It seems that you missed query!"), undefined)
         } else{
             const {temperature, feelslike} = response.body.current
-            callback(undefined, chalk.green.bold(`The weather is currently ${temperature} degree celcious, however, it feels like ${feelslike} outside` ))
+            callback(undefined, `The weather is currently ${temperature} degree celcious, however, it feels like ${feelslike} outside` )
         }
     });
 };
