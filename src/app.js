@@ -19,6 +19,13 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/weather", (req, res) => {
+    res.render("weather", {
+        title: "Weather Page",
+        author: "Tram"
+    });
+});
+
 app.get("*", (req,res) => {
     res.render("404", {
         errorMessage: "Page Not Found"
