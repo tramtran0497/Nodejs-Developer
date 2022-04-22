@@ -1,13 +1,17 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
-const forecast = require("../utils/forecast");
-const geocode = require("../utils/geocode");
+const forecast = require("./utils/forecast");
+const geocode = require("./utils/geocode");
 
 const app = express();
+// create publicDirectory path
+const publicDirectoryPath = path.join(__dirname, "../public");
 const viewPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
 
+// using static files in public folder
+app.use(express.static(publicDirectoryPath));
 // set up, pointing to file with extension "hbs"
 app.set("view engine", "hbs");
 // customizing views directory
@@ -22,34 +26,34 @@ app.get("/", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
+    res.render("weather", {
+        title: "Weather",
+        author: "Tram"
+    });
+});
+
+// create a place, dev use to fetch data and showing in Home page
+app.get("/weatherAPI", (req, res) => {
     const {place} = req.query;
     if(!place){
-        return res.render("weather", {
-            title: "Weather Page",
-            author: "Tram",
+        return res.send({
             error: "Please fill your place!",
         });
     };
     // set default value for destructuring argument
     geocode(place, (error, {placeName} = {}) => {
         if(error){
-            return res.render("weather", {
-                title: "Weather Page",
-                author: "Tram",
+            return res.send({
                 error: error,
             });
         }
         forecast(placeName, (error, forecastData) => {
             if(error){
-                return res.render("weather", {
-                    title: "Weather Page",
-                    author: "Tram",
+                return res.send({
                     error: error,
                 });
             };
-            res.render("weather", {
-                title: "Weather Page",
-                author: "Tram",
+            res.send({
                 place: placeName,
                 weather: forecastData
             });

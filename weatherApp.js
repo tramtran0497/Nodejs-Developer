@@ -2,8 +2,8 @@
 require('dotenv').config()
 const { default: chalk } = require('chalk');
 const request = require('postman-request');
-const geocode = require("./utils/geocode");
-const forecast = require("./utils/forecast");
+const geocode = require("./src/utils/geocode");
+const forecast = require("./src/utils/forecast");
 
 const place = process.argv[2];
 
