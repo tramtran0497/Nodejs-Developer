@@ -1,6 +1,16 @@
 
-console.log("Hello")
+const weatherForm = document.querySelector("form");
+const searchInput = document.querySelector("input");
 
-fetch(`http://localhost:5000/weatherAPI?place=helsinki`).then(response => {
-    response.json().then(data => console.log(data))
-})
+weatherForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const location = searchInput.value;
+    fetchData(location);
+});
+
+const fetchData = async(location) => {
+    const resAPI = await fetch(`http://localhost:5000/weatherAPI?place=${location}`);
+    const resData = await resAPI.json();
+    if(resData.error) return console.log(resData.error);
+    return console.log(resData);
+};

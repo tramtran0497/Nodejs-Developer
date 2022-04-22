@@ -5,17 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
-    <script src="./js/weather.js"></script>
     <title>Document</title>
 </head>
 <body>
     {{>header}}
     <h1>{{title}}</h1>
+
+    <form action="">
+        <input type="text" placeholder="Enter your location...">
+        <button>Search</button>
+    </form>
+
     <p> Error: {{error}}</p>
     <p> Place: </p>
     <p> Weather: </p>
     {{>footer}}
 
+    <script src="./js/weather.js"></script>
 
 </body>
 </html>
