@@ -9,9 +9,9 @@ const forecast = (place, callback) => {
 
     request({url: url, json: true}, (error, response) => {
         if(error){
-            callback(chalk.red.bold("Sorry, please check your connection!"), undefined);
+            callback("Sorry, please check your connection!", undefined);
         }else if(response.body.error){
-            callback(chalk.red.bold("It seems that you missed query!"), undefined)
+            callback("It seems that you missed query!", undefined)
         } else{
             const {temperature, feelslike} = response.body.current
             callback(undefined, `The weather is currently ${temperature} degree celcious, however, it feels like ${feelslike} outside` )

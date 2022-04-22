@@ -9,9 +9,9 @@ const geocode = (place, callback) => {
 
     request({url: url, json: true}, (error, response) => {
         if(error){
-            callback(chalk.red.bold("Your connection does not work, check it again!"), undefined);
+            callback("Your connection does not work, check it again!", undefined);
         } else if(!response.body.features.length){
-            callback(chalk.red.bold("It seems you forget to add your place."), undefined);
+            callback("It seems you forget to add your place.", undefined);
         } else{
             callback(undefined, {
                 placeName: response.body.features[0].place_name,

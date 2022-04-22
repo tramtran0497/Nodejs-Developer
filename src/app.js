@@ -30,8 +30,8 @@ app.get("/weather", (req, res) => {
             error: "Please fill your place!",
         });
     };
-    
-    geocode(place, (error, {placeName}) => {
+    // set default value for destructuring argument
+    geocode(place, (error, {placeName} = {}) => {
         if(error){
             return res.render("weather", {
                 title: "Weather Page",
@@ -46,14 +46,13 @@ app.get("/weather", (req, res) => {
                     author: "Tram",
                     error: error,
                 });
-            }
+            };
             res.render("weather", {
                 title: "Weather Page",
                 author: "Tram",
                 place: placeName,
                 weather: forecastData
-            })
-            
+            });
         });
     });
 });
