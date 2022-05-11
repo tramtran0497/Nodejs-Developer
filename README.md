@@ -54,6 +54,7 @@ Convert JSON files to JS Object
     debugger
 ```
 #### Weather App
+- Heroku Deploy: [Weather Demo](https://tram-weather-app.herokuapp.com/).
 - Dark Sky API or WeatherStack, sign up an account.
 
 - Install `postman-request` npm
